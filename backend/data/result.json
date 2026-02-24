@@ -1,0 +1,22 @@
+{
+    "ヂョ": {
+        "answer": "jo", 
+        "options": ["pyo", "kya", "jo", "so"]
+    }, 
+    "ト": {
+        "answer": "to", 
+        "options": ["tsu", "ji", "to", "pyu"]
+    }, 
+    "デ": {
+        "answer": "de", 
+        "options": ["u", "gya", "de", "he"]
+    }, 
+    "ロ": {
+        "answer": "ro", 
+        "options": ["e", "ke", "tsu", "ro"]
+    }, 
+    "ピ": {
+        "answer": "pi", 
+        "options": ["ja", "pyu", "pi", "shu"]
+    }
+}
