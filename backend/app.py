@@ -21,14 +21,22 @@ def create_app():
     def index():
         return '<h1>Welcome to the Japanese Learning API!</h1>'
 
-    @app.route('/generate-questions', methods=['POST'])
+    @app.route('/generate-questions-kana', methods=['POST'])
     def generate_questions():
         data = request.get_json()
         kana_choice = data.get('kana_choice', "hiragana")
         choices = data.get('choices', [])
         total_questions = data.get('total_questions', 10)
 
-        questions = main.question_maker(kana_choice, choices, total_questions)
+        questions = main.question_maker_kana(
+            kana_choice, choices, total_questions)
+        return jsonify(questions)
+
+    @app.route('/generate-questions-kanji', methods=['POST'])
+    def generate_kanji_questions():
+        data = request.get_json()
+        total_questions = data.get('total_questions', 10)
+        questions = main.question_maker_kanji(total_questions)
         return jsonify(questions)
 
     @app.route('/api/health')

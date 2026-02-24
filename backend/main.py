@@ -2,14 +2,16 @@ import random
 
 from backend.hiragana import Hiragana
 from backend.katakana import Katakana
+from backend.kanji import Kanji
 
 
 class Main:
     def __init__(self):
         self.hiragana = Hiragana()
         self.katakana = Katakana()
+        self.kanji = Kanji()
 
-    def question_maker(self, kana_choice: str, choices: list, total_questions: int) -> list:
+    def question_maker_kana(self, kana_choice: str, choices: list, total_questions: int) -> list:
         questions = []
         if kana_choice.casefold() == "hiragana":
             random_characters = self.hiragana.get_random_character_jp(
@@ -74,4 +76,18 @@ class Main:
                 "Invalid choice provided. Please select either 'Hiragana' or 'Katakana'.")
             exit(1)
 
+        return questions
+
+    def question_maker_kanji(self, total_questions: int) -> list:
+        questions = []
+        random_kanji = self.kanji.random_kanji(total_questions)
+        for kanji in random_kanji:
+            answer = self.kanji.get_kanji_meaning(kanji)
+            options = [answer]
+            options.extend(self.kanji.random_kanji_meaning())
+            questions.append({
+                "character": kanji,
+                "answer": answer,
+                "options": random.sample(options, 4)
+            })
         return questions
