@@ -1,11 +1,12 @@
 import {
   useAuth
 } from "@clerk/clerk-react";
-import Login from "./components/Login";
-import Home from "./components/Home";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
 import { Navigate, Route, Routes } from "react-router-dom";
 import QuizSetup from "./components/quiz/QuizSetup";
 import QuizResult from "./components/quiz/QuizResult";
+import Resources from "./pages/Resources";
 
 function App() {
   const {isSignedIn, isLoaded} = useAuth();
@@ -19,6 +20,7 @@ function App() {
         <Route path="/login" element={!isSignedIn ? <Login /> : <Navigate to={"/"} replace />} />
         <Route path="/quiz" element={<QuizSetup />} />
         <Route path="/quiz-results" element={<QuizResult />} />
+        <Route path="/resources" element={<Resources />} />
       </Routes>
     </>
   );
