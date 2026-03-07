@@ -1,3 +1,4 @@
+
 export type ScriptType = "hiragana" | "katakana" | "both";
 export type KanaSet = "seion" | "dakuon" | "handakuon" | "yoon";
 
@@ -21,3 +22,9 @@ export type QuizProgress = {
   score: number;
   selected: string | null;
 };
+
+export type kana = 
+  {
+    kana: string,
+    romaji: string
+  }
