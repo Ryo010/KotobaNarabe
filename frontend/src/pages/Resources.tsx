@@ -1,7 +1,6 @@
 import '../styles/resources.css' 
 import NavigationBar from '../components/NavigationBar'
 import { useState } from "react"
-import type { kana } from '../types/quiz.types';
 
   
 

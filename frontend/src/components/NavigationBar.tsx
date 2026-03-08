@@ -1,3 +1,4 @@
+import { UserButton } from '@clerk/clerk-react';
 import '../styles/home.css'
 
 const NavigationBar = () => {
@@ -21,7 +22,10 @@ const NavigationBar = () => {
             <i className="fa fa-bars fa-3x" aria-hidden="true"></i> 
           </button>   
 
-          <img className="profilePicture" src="src/images/pfp.jpg" alt="icon" />    
+          <div className='profileButton'>
+            <UserButton afterSwitchSessionUrl='/'/>
+          </div>  
+          
 
         </div>
       </div>      
