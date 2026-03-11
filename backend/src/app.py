@@ -5,8 +5,8 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 
 from . import models
-from backend.api.db import engine, Base, SessionLocal
-from backend.api.main import Main
+from backend.src.db import engine, Base, SessionLocal
+from backend.src.main import Main
 load_dotenv()
 
 
