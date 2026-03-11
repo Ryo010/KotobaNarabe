@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 from . import models
 from .db import engine, Base, SessionLocal
-from .db import Main
+from .main import Main
 load_dotenv()
 
 
