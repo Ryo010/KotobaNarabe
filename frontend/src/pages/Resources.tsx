@@ -1,6 +1,8 @@
 import '../styles/resources.css' 
 import NavigationBar from '../components/NavigationBar'
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { fetchChart } from '../services/resourcesApi';
+import useResources from '../hooks/useResources';
 
   
 
@@ -144,12 +146,12 @@ const katakana = [
     {kana:"ン",romaji:"n"}
 ];
 
-
+  
 
   const [chartType, setChartType] = useState("hiragana");
   const [selectedChar, setSelectedChar] = useState<any>(null);
 
-   const chart = chartType === "hiragana" ? hiragana : katakana;
+  const chart = chartType === "hiragana" ? hiragana : katakana;
 
   return (
   <div>  
