@@ -1,0 +1,120 @@
+@import url('./font-awesome-4.7.0/css/font-awesome.min.css');
+
+:root{
+  --accentColor:#bc002d;
+  --primaryColor:#fff;
+  --fontFamilyPrimary:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.profileBtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-radius: 50px;
+  border-width: 5px;
+  transition: 0.2s;
+}
+
+.avatar{
+  position: relative;
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
+  transition:transform 0.15s ease;
+}
+
+.profileBtn:hover .avatar{
+  border-color: #ffffff;
+  cursor: pointer;
+  transform:scale(1.07);
+}
+
+.profile{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.profileInfo{
+  background-color: black;
+  color: #ffffff;
+  font-family:var(--fontFamilyPrimary);
+  margin: 10px;
+  padding: 10px;
+  height: 200px;
+  box-shadow: black 0px 0px 10px 0px;
+}
+
+.profileInfoPanel{
+  position: absolute;
+  right: 10px;
+  top: 80px;
+  transform-origin:top right;
+
+  opacity:0;
+  transform:scale(0.85) translateY(-10px);
+
+  pointer-events:none;
+
+  transition: transform 0.18s cubic-bezier(.16,1,.3,1), opacity 0.18s ease;
+}
+
+.profileInfoPanel.open{
+  opacity:1;
+  transform:scale(1) translateY(0);
+  pointer-events:auto;
+}
+
+.joinDate{
+  color: grey;
+}
+
+.profEmail{
+  color: grey;
+}
+
+.signOutBtn{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#BC002D;
+  color: white;
+  border: none;
+  margin-top: 5px;
+  width: 100px;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  transition: .2s;
+  max-height: 45px;
+  min-height: 35px;
+  max-width: 300px;
+  position: absolute;
+  bottom: 20px;
+}
+
+.signOutBtn:hover{
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border-radius: 50px;
+  border-color: #BC002D;
+  cursor: pointer;
+}
+
+.avatarDropDown{
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+}
+
+.profUsername{
+  font-size: 30px;
+  position: absolute;
+  top: 30px;
+  right: 95px;
+  font-weight: bold;
+}

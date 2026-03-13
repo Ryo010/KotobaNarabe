@@ -24,10 +24,12 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   width: 100%;
   height: 70px; 
   background-color: var(--accentColor);
 }
+
 
 .title {
   display: flex;
@@ -42,7 +44,13 @@
   color: white;
   font-weight: bold;
   position: relative;
-  left: 10px; 
+  left: 10px;
+  transition: 0.2s; 
+}
+
+.name:hover{
+  cursor: pointer;
+  color: #000000;
 }
 
 .namejp {
@@ -53,9 +61,14 @@
   font-size: 20px;
 }
 
-
+.pfpMenu{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
 
 .profilePicture {
+  display: flex;
   justify-content: flex-end;
   width: 50px;
   height: 50px;
@@ -181,8 +194,8 @@
   color: white;
 }
 
-.dropDownMenu {
-  display: flex;
+.dropDownMenu{
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -193,7 +206,6 @@
   position:absolute;
   right: 40px;
   top: 100px;
-
   animation-name: dropDownAnimate;
   animation-duration: 0.4s;
 }
@@ -205,8 +217,8 @@
 
 }
 
-#dropDownMenu{
-  display: none;
+.dropDownMenu.open{
+  display: block;
 }
 
 #dpBtn {
@@ -328,7 +340,7 @@
 }
 
 .resGo:hover{
-   background-color: #ffffff;
+  background-color: #ffffff;
   color: rgb(0, 0, 0);
   border-radius: 25px;
   border-style:dashed;
