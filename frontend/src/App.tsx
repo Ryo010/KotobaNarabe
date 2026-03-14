@@ -8,6 +8,8 @@ import QuizSetup from "./components/quiz/QuizSetup";
 import QuizResult from "./components/quiz/QuizResult";
 import Resources from "./pages/Resources";
 import SignUp from "./pages/SignUp";
+import SSOCallback from "./pages/SSOCallBack";
+import ContinueSignUp from "./pages/ContSignUp";
 
 function App() {
   const {isSignedIn, isLoaded} = useAuth();
@@ -24,6 +26,8 @@ function App() {
         <Route path="/quiz" element={<QuizSetup />} />
         <Route path="/quiz-results" element={<QuizResult />} />
         <Route path="/resources" element={<Resources />} />
+        <Route path="/sso-callback" element={<SSOCallback />} />
+        <Route path="/ContSignUp" element={<ContinueSignUp />} />
       </Routes>
     </>
   );
