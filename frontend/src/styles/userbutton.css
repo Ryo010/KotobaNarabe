@@ -45,7 +45,7 @@
   font-family:var(--fontFamilyPrimary);
   margin: 10px;
   padding: 10px;
-  height: 200px;
+  height: 250px;
   box-shadow: black 0px 0px 10px 0px;
 }
 
@@ -84,7 +84,7 @@
   background-color:#BC002D;
   color: white;
   border: none;
-  margin-top: 5px;
+  margin: 5px;
   width: 100px;
   font-size: 15px;
   font-weight: bold;
@@ -113,8 +113,5 @@
 
 .profUsername{
   font-size: 30px;
-  position: absolute;
-  top: 30px;
-  right: 95px;
   font-weight: bold;
 }
