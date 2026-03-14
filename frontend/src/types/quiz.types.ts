@@ -23,8 +23,23 @@ export type QuizProgress = {
   selected: string | null;
 };
 
-export type kana = 
+export type kana = {
+  character: string;
+  romaji: string;
+};
+
+export type kanaChart = 
   {
-    kana: string,
-    romaji: string
+    hiragana: {
+      dakuon: kana[];
+      handakuon: kana[];
+      seion: kana[];
+      yoon: kana[];
+    };
+    katakana: {
+      dakuon: kana[];
+      handakuon: kana[];
+      seion: kana[];
+      yoon: kana[];
+    };
   }

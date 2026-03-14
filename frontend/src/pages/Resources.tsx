@@ -8,150 +8,17 @@ import useResources from '../hooks/useResources';
 
 function Resources() {
 
-
-
-  const hiragana = [
-    {kana:"あ",romaji:"a"},
-    {kana:"い",romaji:"i"},
-    {kana:"う",romaji:"u"},
-    {kana:"え",romaji:"e"},
-    {kana:"お",romaji:"o"},
-
-    {kana:"か",romaji:"ka"},
-    {kana:"き",romaji:"ki"},
-    {kana:"く",romaji:"ku"},
-    {kana:"け",romaji:"ke"},
-    {kana:"こ",romaji:"ko"},
-
-    {kana:"さ",romaji:"sa"},
-    {kana:"し",romaji:"shi"},
-    {kana:"す",romaji:"su"},
-    {kana:"せ",romaji:"se"},
-    {kana:"そ",romaji:"so"},
-
-    {kana:"た",romaji:"ta"},
-    {kana:"ち",romaji:"chi"},
-    {kana:"つ",romaji:"tsu"},
-    {kana:"て",romaji:"te"},
-    {kana:"と",romaji:"to"},
-
-    {kana:"な",romaji:"na"},
-    {kana:"に",romaji:"ni"},
-    {kana:"ぬ",romaji:"nu"},
-    {kana:"ね",romaji:"ne"},
-    {kana:"の",romaji:"no"},
-
-    {kana:"は",romaji:"ha"},
-    {kana:"ひ",romaji:"hi"},
-    {kana:"ふ",romaji:"fu"},
-    {kana:"へ",romaji:"he"},
-    {kana:"ほ",romaji:"ho"},
-
-    {kana:"ま",romaji:"ma"},
-    {kana:"み",romaji:"mi"},
-    {kana:"む",romaji:"mu"},
-    {kana:"め",romaji:"me"},
-    {kana:"も",romaji:"mo"},
-
-    {kana:"や",romaji:"ya"},
-    {kana: "", romaji: ""},
-    {kana:"ゆ",romaji:"yu"},
-    {kana: "", romaji: ""},
-    {kana:"よ",romaji:"yo"},
-
-    {kana:"ら",romaji:"ra"},
-    {kana:"り",romaji:"ri"},
-    {kana:"る",romaji:"ru"},
-    {kana:"れ",romaji:"re"},
-    {kana:"ろ",romaji:"ro"},
-
-    {kana:"わ",romaji:"wa"},
-    {kana: "", romaji: ""},
-    {kana: "", romaji: ""},
-    {kana: "", romaji: ""},
-    {kana:"を",romaji:"wo"},
-
-    {kana: "", romaji: ""},
-    {kana: "", romaji: ""},
-    {kana: "", romaji: ""},
-    {kana: "", romaji: ""},
-    {kana:"ん",romaji:"n"}
-];
-
-const katakana = [
-    {kana:"ア",romaji:"a"},
-    {kana:"イ",romaji:"i"},
-    {kana:"ウ",romaji:"u"},
-    {kana:"エ",romaji:"e"},
-    {kana:"オ",romaji:"o"},
-
-    {kana:"カ",romaji:"ka"},
-    {kana:"キ",romaji:"ki"},
-    {kana:"ク",romaji:"ku"},
-    {kana:"ケ",romaji:"ke"},
-    {kana:"コ",romaji:"ko"},
-
-    {kana:"サ",romaji:"sa"},
-    {kana:"シ",romaji:"shi"},
-    {kana:"ス",romaji:"su"},
-    {kana:"セ",romaji:"se"},
-    {kana:"ソ",romaji:"so"},
-
-    {kana:"タ",romaji:"ta"},
-    {kana:"チ",romaji:"chi"},
-    {kana:"ツ",romaji:"tsu"},
-    {kana:"テ",romaji:"te"},
-    {kana:"ト",romaji:"to"},
-
-    {kana:"ナ",romaji:"na"},
-    {kana:"ニ",romaji:"ni"},
-    {kana:"ヌ",romaji:"nu"},
-    {kana:"ネ",romaji:"ne"},
-    {kana:"ノ",romaji:"no"},
-
-    {kana:"ハ",romaji:"ha"},
-    {kana:"ヒ",romaji:"hi"},
-    {kana:"フ",romaji:"fu"},
-    {kana:"ヘ",romaji:"he"},
-    {kana:"ホ",romaji:"ho"},
-
-    {kana:"マ",romaji:"ma"},
-    {kana:"ミ",romaji:"mi"},
-    {kana:"ム",romaji:"mu"},
-    {kana:"メ",romaji:"me"},
-    {kana:"モ",romaji:"mo"},
-
-    {kana:"ヤ",romaji:"ya"},
-    {kana: "", romaji: ""},
-    {kana:"ユ",romaji:"yu"},
-    {kana: "", romaji: ""},
-    {kana:"ヨ",romaji:"yo"},
-
-    {kana:"ラ",romaji:"ra"},
-    {kana:"リ",romaji:"ri"},
-    {kana:"ル",romaji:"ru"},
-    {kana:"レ",romaji:"re"},
-    {kana:"ロ",romaji:"ro"},
-
-    {kana:"ワ",romaji:"wa"},
-    {kana: "", romaji: ""},
-    {kana: "", romaji: ""},
-    {kana: "", romaji: ""},
-    {kana:"ヲ",romaji:"wo"},
-
-    {kana: "", romaji: ""},
-    {kana: "", romaji: ""},
-    {kana: "", romaji: ""},
-    {kana: "", romaji: ""},
-    {kana:"ン",romaji:"n"}
-];
-
-  
+  const kanaChart = useResources();
 
   const [chartType, setChartType] = useState("hiragana");
   const [selectedChar, setSelectedChar] = useState<any>(null);
+  
+  if (!kanaChart?.hiragana) {
+  return <div>Loading...</div>;
+}
 
-  const chart = chartType === "hiragana" ? hiragana : katakana;
+
+  const chart = chartType === "hiragana" ? kanaChart.hiragana.seion : kanaChart.katakana.seion;
 
   return (
   <div>  
@@ -196,11 +63,11 @@ const katakana = [
           <div className="grid-container">         
             {chart.map((char, rowIndex) => (
             
-            <div className={`item ${char.kana === "" ? "empty" : char.romaji}`} key={rowIndex} onClick={() => char.kana !== "" && setSelectedChar(char)}>
+            <div className={`item ${char.character === "" ? "empty" : char.romaji}`} key={rowIndex} onClick={() => char.character !== "" && setSelectedChar(char)}>
 
-              {char.kana !== "" && (
+              {char.character !== "" && (
                 <>
-                  <div className="kana">{char.kana}</div>
+                  <div className="kana">{char.character}</div>
                   <div className="romaji">{char.romaji}</div>
                 </>
               )}

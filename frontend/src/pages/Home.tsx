@@ -80,7 +80,10 @@ function Home() {
         <p className="resText" id="resTextJP">学習リソース</p>
         <p className="resText" id="resTextEN">Learning Resources</p>
         <p className="resText" id="resAboutEN">Looking for translations? Or just want to look at what you will learn?</p>
-        <button className="resGo" onClick={() => navigate("/resources")}><span className="material-symbols-outlined">arrow_forward</span>Resources</button>
+        <button className="resGo" onClick={() => {
+          
+          navigate("/resources");
+          }}><span className="material-symbols-outlined">arrow_forward</span>Resources</button>
       </div>
     </div>
   </div>
