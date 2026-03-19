@@ -65,6 +65,8 @@ class Main:
             Kana.romaji,
             Kana.script_type,
             Kana.category
+        ).order_by(
+            Kana.category
         ).all()
 
         resources = defaultdict(lambda: defaultdict(list))
