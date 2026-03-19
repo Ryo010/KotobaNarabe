@@ -1,8 +1,7 @@
-import '../styles/resources.css' 
-import NavigationBar from '../components/NavigationBar'
-import { useEffect, useState } from "react"
-import { fetchChart } from '../services/resourcesApi';
+import { useState } from "react";
+import NavigationBar from '../components/NavigationBar';
 import useResources from '../hooks/useResources';
+import '../styles/resources.css';
 
   
 
@@ -52,7 +51,7 @@ function Resources() {
           <div className="aboutKanji">
             {selectedChar ? (
               <>
-                <h1 className="infoKana">{selectedChar.kana}</h1>
+                <h1 className="infoKana">{selectedChar.character}</h1>
                 <p className="infoRomaji">{selectedChar.romaji}</p>
               </>
             ) : (

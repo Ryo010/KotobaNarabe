@@ -21,7 +21,6 @@ function App() {
       <Routes>
         <Route path="/" element={isSignedIn ? <Home /> : <Navigate to={"/login"} replace />} />
         <Route path="/login" element={!isSignedIn ? <Login /> : <Navigate to={"/"} replace />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/SignUp" element={<SignUp />}/>
         <Route path="/quiz" element={<QuizSetup />} />
         <Route path="/quiz-results" element={<QuizResult />} />
