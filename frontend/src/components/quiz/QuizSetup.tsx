@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { fetchQuiz } from "../../services/quizApi";
-import type { KanaSet, Question } from "../../types/quiz.types";
+import type { KanaSet, Question } from "../../types/kana.types";
 import QuizCard from "./QuizCard";
 
 const QuizSetup = () => {

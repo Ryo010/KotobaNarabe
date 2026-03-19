@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchChart } from "../services/resourcesApi";
-import type { kanaChart } from "../types/quiz.types";
+import type { kanaChart } from "../types/kana.types";
 
 const useResources = () => {
   const [kanaChart, setKanaChart] = useState<kanaChart>({} as kanaChart);

@@ -1,4 +1,4 @@
-import type { Question, QuizRequest } from './../types/quiz.types';
+import type { Question, QuizRequest } from '../types/kana.types';
 import { api } from "../lib/axios";
 
 

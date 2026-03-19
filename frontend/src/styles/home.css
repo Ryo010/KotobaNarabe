@@ -45,20 +45,13 @@
   font-weight: bold;
   position: relative;
   left: 10px;
-  transition: 0.2s; 
+  transition: 0.2s;
+  font-size: 28px;
 }
 
 .name:hover{
   cursor: pointer;
   color: #000000;
-}
-
-.namejp {
-  font-size: 30px; 
-}
-
-.nameEn {
-  font-size: 20px;
 }
 
 .pfpMenu{

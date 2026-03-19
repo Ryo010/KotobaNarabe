@@ -20,13 +20,11 @@ const NavigationBar = () => {
       <div className="topBar">
         <div className="title">
 
-          <p className="name namejp" onClick={() => navigate("/")}>
-            言葉並べ
-          </p>
-
-          <p className="name nameEn" onClick={() => navigate("/")}>
-            KotobaNarabe
-          </p>
+          <div className="name">
+            <p onClick={() => navigate("/")}>
+              言葉並べ KotobaNarabe
+            </p>
+          </div>
 
           <div className="pfpMenu">
 

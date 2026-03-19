@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import type { Question } from "../../types/quiz.types";
+import type { Question } from "../../types/kana.types";
 
 interface QuizCardProps {
   questions: Question[];
