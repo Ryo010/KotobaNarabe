@@ -1,32 +1,29 @@
-import { useNavigate } from "react-router-dom";
-import type { Question } from "../../types/kana.types";
+import { useQuizState } from "../../store/Quiz";
 
 interface QuizCardProps {
-  questions: Question[];
   currentQuestion: number;
   score: number;
   selected: string | null;
 }
 
-const QuizCard = ({ questions, currentQuestion, score, selected }: QuizCardProps) => {
-  const navigate = useNavigate();
-
+const QuizCard = ({ currentQuestion, score, selected }: QuizCardProps) => {
+  const { quizData, setCurrentPage } = useQuizState();
 
   const checkAnswer = (choice: string) => {
-    if (choice === questions[currentQuestion].answer) {
+    if (choice === quizData[currentQuestion].answer) {
       console.log("Correct!");
       currentQuestion++;
       score++;
-      if (currentQuestion >= questions.length) {
+      if (currentQuestion >= quizData.length) {
         console.log("Quiz completed! Final score:", score);
         localStorage.setItem("quizScore", score.toString()); // Store score in localStorage
-        localStorage.setItem("quizTotal", questions.length.toString()); // Store total questions in localStorage
-        navigate("/quiz-results"); // Redirect to quiz results page
+        localStorage.setItem("quizTotal", quizData.length.toString()); // Store total questions in localStorage
+        setCurrentPage(2); // Redirect to quiz results page
       }
     } else {
       console.log("Incorrect!");
       currentQuestion++;
-      if (currentQuestion >= questions.length) {
+      if (currentQuestion >= quizData.length) {
         console.log("Quiz completed! Final score:", score);
       }
     }
@@ -35,7 +32,7 @@ const QuizCard = ({ questions, currentQuestion, score, selected }: QuizCardProps
 
   return (
     <div>
-        {questions.map((q, idx) => (
+        {quizData.map((q, idx) => (
           <div key={currentQuestion}>
             <p>{q.character}</p>
             <>

@@ -1,6 +1,8 @@
 import { useQuizState } from "../store/Quiz";
 import QuizSetup from "../components/quiz/QuizSetup";
 import NavigationBar from "../components/NavigationBar";
+import QuizCard from "../components/quiz/QuizCard";
+import QuizResult from "../components/quiz/QuizResult";
 
 const Quiz = () => {
 
@@ -9,7 +11,8 @@ const Quiz = () => {
     if (currentPage === 1) {
         return (
             <div>
-                Quiz
+                <NavigationBar />
+                <QuizCard currentQuestion={0} score={0} selected={null} />
             </div>
         );
     }
@@ -17,7 +20,8 @@ const Quiz = () => {
     if (currentPage === 2){
         return (
             <div>
-                QuizResult
+                <NavigationBar />
+                <QuizResult />
             </div>
         );
     }
