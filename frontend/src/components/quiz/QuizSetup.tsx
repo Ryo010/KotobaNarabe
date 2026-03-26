@@ -2,10 +2,11 @@ import { useState } from "react";
 import { fetchQuiz } from "../../services/quizApi";
 import type { KanaSet, Question } from "../../types/kana.types";
 import QuizCard from "./QuizCard";
+import { useQuizState } from "../../store/Quiz";
 
 const QuizSetup = () => {
-  const [quizStarted, setQuizStarted] = useState(false);
   const [quizData, setQuizData] = useState<Question[]>([]);
+  const { currentPage, setCurrentPage } = useQuizState();
   
   const handleStartQuiz = async () => {
     const kana_choice = document.forms[0].elements.namedItem("kana_choice") as HTMLSelectElement;
@@ -27,10 +28,10 @@ const QuizSetup = () => {
     });
     setQuizData(quiz);
     console.log("Quiz data:", quizData);
-    setQuizStarted(true);
+    setCurrentPage(1);
   }
 
-  if (quizStarted) {
+  if (currentPage === 1) {
     return (
       <div>
         <h1>Quiz Started!</h1>

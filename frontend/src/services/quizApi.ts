@@ -4,7 +4,7 @@ import { api } from "../lib/axios";
 
 export const fetchQuiz = async (payload: QuizRequest) => {
   try {
-    const response = await api.post("/generate-questions", payload);
+    const response = await api.post("/generate-questions-kana", payload);
     const questions = response.data as Question[];
     console.log("Quiz API response:", questions);
     return questions;
