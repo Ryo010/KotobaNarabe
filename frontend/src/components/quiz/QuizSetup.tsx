@@ -1,6 +1,5 @@
 import { fetchQuiz } from "../../services/quizApi";
 import type { KanaSet } from "../../types/kana.types";
-import QuizCard from "./QuizCard";
 import { useQuizState } from "../../store/Quiz";
 import "../../styles/quiz.css";
 
@@ -46,11 +45,9 @@ const QuizSetup = () => {
         <div className="kanaSelection">
           <label className="kanaLabel" htmlFor="kana_choice">Kana Type:</label>
           <select className="kanaSelect" id="kana_choice" name="kana_choice">
-            <div className="kanaOptions">
-            <option id="opt" value="hiragana">Hiragana</option>
+            <option id="opt" value="hiragana" >Hiragana</option>
             <option id="opt" value="katakana">Katakana</option>
             <option id="opt" value="both">Both</option>
-            </div>
           </select>
         </div>
 

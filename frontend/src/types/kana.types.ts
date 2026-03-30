@@ -6,7 +6,7 @@ export type SetType = KanaSet[];
 
 export type Question = {
   character: string;
-  answer: string;
+  correct_answer: string;
   options: string[];
 };
 

@@ -4,20 +4,17 @@ import { useQuizState } from "../../store/Quiz";
 
 const QuizResult = () => {
     const navigate = useNavigate();
-    const score = parseInt(localStorage.getItem("quizScore") || "0", 10);
-    const total = parseInt(localStorage.getItem("quizTotal") || "0", 10);
-    const { setCurrentPage } = useQuizState();
+    const { score, currentQuestion, setCurrentPage, setScore } = useQuizState();
 
     const handleReset = () => {
-        localStorage.removeItem("quizScore");
-        localStorage.removeItem("quizTotal");
+        setScore(0);
         setCurrentPage(0);
     }
 
   return (
     <div>
       <h2>Quiz Results</h2>
-      <p>Score: {score} out of {total}</p>
+      <p>Score: {score} out of {currentQuestion}</p>
 
 
 
