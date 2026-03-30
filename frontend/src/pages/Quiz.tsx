@@ -12,7 +12,7 @@ const Quiz = () => {
         return (
             <div>
                 <NavigationBar />
-                <QuizCard currentQuestion={0} score={0} selected={null} />
+                <QuizCard />
             </div>
         );
     }

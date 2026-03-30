@@ -1,28 +1,20 @@
 import { useQuizState } from "../../store/Quiz";
 
-interface QuizCardProps {
-  currentQuestion: number;
-  score: number;
-  selected: string | null;
-}
-
-const QuizCard = ({ currentQuestion, score, selected }: QuizCardProps) => {
-  const { quizData, setCurrentPage } = useQuizState();
+const QuizCard = () => {
+  const { quizData, currentQuestion, score, setCurrentPage, setCurrentQuestion, setScore } = useQuizState();
 
   const checkAnswer = (choice: string) => {
-    if (choice === quizData[currentQuestion].answer) {
+    if (choice === quizData[currentQuestion].correct_answer) {
       console.log("Correct!");
-      currentQuestion++;
-      score++;
-      if (currentQuestion >= quizData.length) {
+      setCurrentQuestion(currentQuestion + 1);
+      setScore(score + 1);
+      if (currentQuestion >= quizData.length - 1) {
         console.log("Quiz completed! Final score:", score);
-        localStorage.setItem("quizScore", score.toString()); // Store score in localStorage
-        localStorage.setItem("quizTotal", quizData.length.toString()); // Store total questions in localStorage
-        setCurrentPage(2); // Redirect to quiz results page
+        setCurrentPage(2);
       }
     } else {
       console.log("Incorrect!");
-      currentQuestion++;
+      setCurrentQuestion(currentQuestion + 1);
       if (currentQuestion >= quizData.length) {
         console.log("Quiz completed! Final score:", score);
       }
@@ -33,7 +25,7 @@ const QuizCard = ({ currentQuestion, score, selected }: QuizCardProps) => {
   return (
     <div>
         {quizData.map((q, idx) => (
-          <div key={currentQuestion}>
+          <div key={idx}>
             <p>{q.character}</p>
             <>
               {q.options.map((choice: string, cidx: number) => (
@@ -42,13 +34,6 @@ const QuizCard = ({ currentQuestion, score, selected }: QuizCardProps) => {
             </>
           </div>
         ))}
-
-
-
-
-
-
-
     </div>
   )
 }
