@@ -2,6 +2,7 @@ import { fetchQuiz } from "../../services/quizApi";
 import type { KanaSet } from "../../types/kana.types";
 import QuizCard from "./QuizCard";
 import { useQuizState } from "../../store/Quiz";
+import "../../styles/quiz.css";
 
 const QuizSetup = () => {
   const { quizData , setCurrentPage, setQuizData } = useQuizState();
@@ -31,51 +32,57 @@ const QuizSetup = () => {
 
   return (
     <div>
-      <h1>Quiz Setup</h1>
+      <h1 className="quizSetup">Quiz Setup</h1>
+
+      <div className="howTo">
+        <span className="head">How to setup the Quiz :<br/>
+        -Step 1 : Select kana type.<br/>
+        -Step 2 : Choose the type of Questions.<br/>
+        -Step 3 : Select the number of question you want to attempt [Min : 5, Max : 25]<br/>
+        Finally, Submit and begin the Quiz!!!</span>   
+      </div>
 
       <form onSubmit={(e) => { e.preventDefault(); handleStartQuiz(); }}>
-        <div>
-          <label htmlFor="kana_choice">Kana Type:</label>
-          <select id="kana_choice" name="kana_choice">
-            <option value="hiragana">Hiragana</option>
-            <option value="katakana">Katakana</option>
-            <option value="both">Both</option>
+        <div className="kanaSelection">
+          <label className="kanaLabel" htmlFor="kana_choice">Kana Type:</label>
+          <select className="kanaSelect" id="kana_choice" name="kana_choice">
+            <div className="kanaOptions">
+            <option id="opt" value="hiragana">Hiragana</option>
+            <option id="opt" value="katakana">Katakana</option>
+            <option id="opt" value="both">Both</option>
+            </div>
           </select>
         </div>
 
-        <div>
-          <label>Choices:</label>
-          <div>
-            <input type="checkbox" id="seion" value="seion" defaultChecked />
-            <label htmlFor="seion">Seion</label>
-          </div>
-          <div>
-            <input type="checkbox" id="dakuon" value="dakuon" />
-            <label htmlFor="dakuon">Dakuon</label>
-          </div>
-          <div>
-            <input type="checkbox" id="handakuon" value="handakuon" />
-            <label htmlFor="handakuon">Handakuon</label>
-          </div>
-          <div>
-            <input type="checkbox" id="yoon" value="yoon" />
-            <label htmlFor="yoon">Yoon</label>
-          </div>
+        <div className="choices">
+          <label className="choicesLabel">Choices:</label>
+          <div className="choice">
+            <div className="choiceItem">
+              <input type="checkbox" id="seion" value="seion" defaultChecked />
+              <label htmlFor="seion">Seion</label>
+            </div>
+            <div className="choiceItem">
+              <input type="checkbox" id="dakuon" value="dakuon" />
+              <label htmlFor="dakuon">Dakuon</label>
+            </div>
+            <div className="choiceItem">
+              <input type="checkbox" id="handakuon" value="handakuon" />
+              <label htmlFor="handakuon">Handakuon</label>
+            </div>
+            <div className="choiceItem">
+              <input type="checkbox" id="yoon" value="yoon" />
+              <label htmlFor="yoon">Yoon</label>
+            </div>
+          </div>  
         </div>
 
-        <div>
+        <div className="questionCount">
           <label htmlFor="total_questions">Total Questions:</label>
           <input type="number" defaultValue={10} min={5} max={25} id="total_questions" />
         </div>
 
-        <button type="submit">Start Quiz</button>
-      </form>
-
-
-
-
-
-
+        <button className="submit" type="submit">Start Quiz</button>
+      </form> 
     </div>
   )
 }

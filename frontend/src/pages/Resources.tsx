@@ -1,5 +1,6 @@
 import { useState } from "react";
 import NavigationBar from '../components/NavigationBar';
+import { Loading } from '../components/LoadingPage';
 import useResources from '../hooks/useResources';
 import '../styles/resources.css';
 
@@ -13,7 +14,7 @@ function Resources() {
   const [selectedChar, setSelectedChar] = useState<any>(null);
   
   if (!kanaChart?.hiragana) {
-  return <div>Loading...</div>;
+  return <Loading />;
 }
 
 
