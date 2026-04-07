@@ -42,14 +42,6 @@ export default function Login() {
   return (
     <div className="login-page">
 
-    <div className="welcomeLogin">
-    <p className="logGreet">Welcome to KotobaNarabe!</p>
-    <p className="logStart">Start your journey learning japanese today!</p>
-    </div>
-
-
-
-
       <div className="login-card">
 
         <h1 className="login-title">Sign in</h1>

@@ -32,6 +32,19 @@ function Home() {
           }}><span className="material-symbols-outlined">arrow_forward</span>Resources</button>
       </div>
     </div>
+
+       <div className="resourcesSec">
+      <div className="resHead">
+        <p className="resText" id="resTextJP">クイズ</p>
+        <p className="resText" id="resTextEN">Quiz</p>
+        <p className="resText" id="resAboutEN">Feel confident? Challenge yourself.</p>
+        <button className="resGo" onClick={() => {
+          
+          navigate("/Quiz");
+          }}><span className="material-symbols-outlined">arrow_forward</span>Quiz</button>
+      </div>
+    </div>      
+
   </div>
 
   )
